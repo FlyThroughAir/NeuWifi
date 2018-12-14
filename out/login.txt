@@ -1,0 +1,165 @@
+<html ng-app lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>IP控制网关</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--link href="/css/style.css" rel="stylesheet" /-->
+  <link rel="stylesheet" href="//apps.neu.edu.cn/cdnjs/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//apps.neu.edu.cn/cdnjs/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap-theme.min.css"> 
+  <link href="/css/application.css?20161007000000" type="text/css" rel="stylesheet" media="all" />
+
+  
+  <script language="javascript" src="js/base64.js"></script>
+  <script language="javascript" src="js/jquery.js"></script>
+  <script language="javascript" src="js/srun_portal.js"></script>
+  <script language="javascript" src="js/srun_portal_ui.js"></script>
+  <script src="//apps.neu.edu.cn/cdnjs/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="//apps.neu.edu.cn/cdnjs/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+  <script src="js/application.js?20141007000000"></script>
+</head>
+
+<body class="bottom">
+
+  <!-- Begin container-->
+  <div class="container">
+    <div class="wrapper">
+      <div class="header"><h1>IP控制网关</h1></div>
+
+      <div class="toolbar hidden-xs">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active"><a href="#">IP控制网关</a></li>
+          <!--<li><a href="http://jifei.neu.edu.cn/user" target="_blank">计费自助服务</a></li>-->
+          <li><a href="http://ipgw.neu.edu.cn:8800" target="_blank">上网费用查询</a></li>
+          <li><a href="http://stu.neu.edu.cn" target="_blank">学生电子邮件</a></li>
+          <li><a href="http://network.neu.edu.cn/portal/" target="_blank">IT服务门户</a></li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-lg-2 col-sm-3 hidden-xs">
+             <ul class="list-group">
+               <a class="list-group-item" href="http://jifei.neu.edu.cn/user/activity" target="_blank">自助激活上网账号</a>
+               <a class="list-group-item" href="http://jifei.neu.edu.cn/user/password" target="_blank">忘记上网登录密码</a>
+               <a class="list-group-item" href="http://jifei.neu.edu.cn/user/product" target="_blank" style="color: red;">自助更改套餐 <span class="label label-danger">New</span></a>
+             </ul>
+          </div>
+      
+          <div class="col-lg-10 col-sm-9">
+            						
+                          <table width="700" height="260" class="login">
+                <form name="form3" action="srun_portal_pc.php?ac_id=1&"  method="post">
+                  <input type="hidden" name="action" value="auto_logout">
+                  <input type="hidden" name="info" value="">
+                  <input type="hidden" name="user_ip" value="219.216.64.166">
+                  <input type="hidden" name="username" value="1771498">
+                  <tr>
+                    <td width="70"></td>
+                    <td valign="top">
+                      <table>
+                        <tr>
+                          <td height="40"></td>
+                          <td height="40" style="font-weight:bold;color:orange;">
+                            网络已连接                          </td>
+                        </tr>
+                                                <tr>
+                          <td height="30" align="right" style="font-weight:bold;color:black;">用户名:</td>
+                          <td height="30">&nbsp;&nbsp;<span id="user_name">1771498</span></td>
+                        </tr>
+                        <tr>
+                          <td height="30" align="right" style="font-weight:bold;color:black;">已用流量:</td>
+                          <td height="30">&nbsp;&nbsp;<span id="sum_bytes"><font color="#aaaaaa">正在获取...</font></span></td>
+                        </tr>
+                        <tr>
+                          <td height="30" align="right" style="font-weight:bold;color:black;">已用时长:</td>
+                          <td height="30">&nbsp;&nbsp;<span id="sum_seconds"></span></td>
+                        </tr>
+                        <tr>
+                          <td height="30" align="right" style="font-weight:bold;color:black;">帐户余额:</td>
+                          <td height="30">&nbsp;&nbsp;<span id="user_balance"></span> (新系统月租月末结算, 本余额信息未收取本月月租)</td>
+                        </tr>
+                        <tr>
+                          <td height="30" align="right" style="font-weight:bold;color:black;">IP地址:</td>
+                          <td height="30">&nbsp;&nbsp;<span id="user_ip"></span></td>
+                        </tr>
+                                                <tr>
+                          <td height="30" align="right" style="font-weight:bold;color:black;">温馨提示:</td>
+                          <td height="30">&nbsp;&nbsp;<span id="">E2620: You are already online.</span></td>
+                        </tr>	
+                        						
+                        <script language="javascript">
+                          setTimeout("get_online_info('219.216.64.166')", 2000);
+                        </script>
+                                                <tr>
+                          <td colspan="2" height="30"></td>
+                        </tr>
+                        <tr>
+                          <td height="" colspan="2" style="font-weight:bold;color:black;">
+                                                      <input type="submit" value="注销" class="a a_demo_one">&nbsp;
+                                                                                </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </form>
+              </table>
+                      </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">最新网络中心黑板报</div>
+              <div class="panel-body">
+                <ul ng-controller="NetworkPostsController">
+                  <li ng-repeat="post in posts">
+                    <a target="_blank" ng-href="{{post.url}}">[{{post.date}}] {{post.title}}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">常见问题与注意事项</div>
+              <div class="panel-body">
+                <ul>
+                  <li><a href="http://network.neu.edu.cn/archives/2926">网络安全为人民，网络安全靠人民——2018年网络安全宣传周</a></li>
+                  <li><a href="http://202.118.1.60" style="color: red;">永恒之蓝系统漏洞在线检测发现，推荐使用！</a></li>
+                  <li>新系统月租月末结算, 余额信息为未收取当月月租，账户余额大于月租方可上网</li>
+                  <li><a href="http://network.neu.edu.cn/archives/645">校园网续费时间调整为：上午8:00-11:30，下午14:30-16:00</a></li>
+                  <li><a href="http://network.neu.edu.cn/archives/574">开学啦！忘记二次密码了么？通过密码直接更改二次密码吧！</a></li>
+                  <li><a href="http://network.neu.edu.cn/archives/472">无线网络环境中使用校园网的注意事项</a></li>
+                  <li><a href="http://ipgw.neu.edu.cn/faq.htm#yuanyin">P2P软件下载校内资源产生流量问题</a></li>
+                  <li>
+                    <a href="http://hdtv.neu6.edu.cn/newplayer?p=cctv5hd" target="_blank">CCTV5(高清)</a>
+                    <a href="http://hdtv.neu6.edu.cn/newplayer?p=hunanhd" target="_blank">湖南卫视(高清)</a>
+                    <a href="http://hdtv.neu6.edu.cn/newplayer?p=zjhd" target="_blank">浙江卫视(高清)</a>
+                    <a href="http://hdtv.neu6.edu.cn/" target="_blank">更多...</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--div class="well">
+          <p></p>
+        </div-->
+      	<div class="well">
+          <h4>注意：</h4>
+          <p>1. 请务必在下机前到IP网关来断开您的连接，否则容易因意外流量损失自己的费用。重启机器前也要断开您的连接，养成良好的注册习惯。</p>
+          <p>2. 网络中心电话：技术咨询 87240（校内小号）； 费用问题 87251（校内小号） </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      &copy; 1993-2013 Northeastern University Networking Center. All rights reserved.<br />
+      缴费问题：83687251（外线），87251（内线）；技术咨询 83687240（外线），87240（内线）
+    </div>
+  </div>
+  <!-- End container-->
+
+</body>
+</html>

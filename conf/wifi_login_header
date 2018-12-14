@@ -1,0 +1,14 @@
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 95
+Content-Type: application/x-www-form-urlencoded
+Cookie: login=bQ0pOyR6IXU7PJaQQqRAcBPxGAvxAcrunljYB9idc%252FuiszP9W7RifWAkxh7bqgI5ferUONgDPYyfjrFEP9Aj9tUD1xqha1WZVOfXRzulBRNvbs51urNifyi0aY4wJVIMRIRhQtAGCurdwfurSmKr20JG0LjYmlRsFwRZRQ3HuKwjeIXYfxY%253D
+Host: ipgw.neu.edu.cn
+Origin: http://ipgw.neu.edu.cn
+Pragma: no-cache
+Referer: http://ipgw.neu.edu.cn/srun_portal_pc.php?ac_id=1&
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36

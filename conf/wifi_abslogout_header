@@ -1,0 +1,6 @@
+Accept: */*
+Content-Type: application/x-www-form-urlencoded
+Origin: http://ipgw.neu.edu.cn
+Referer: http://ipgw.neu.edu.cn/srun_portal_pc.php?ac_id=1&
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+X-Requested-With: XMLHttpRequest

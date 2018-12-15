@@ -53,7 +53,7 @@
                 <form name="form3" action="srun_portal_pc.php?ac_id=1&"  method="post">
                   <input type="hidden" name="action" value="auto_logout">
                   <input type="hidden" name="info" value="">
-                  <input type="hidden" name="user_ip" value="219.216.64.166">
+                  <input type="hidden" name="user_ip" value="118.202.40.134">
                   <input type="hidden" name="username" value="1771498">
                   <tr>
                     <td width="70"></td>
@@ -84,13 +84,9 @@
                           <td height="30" align="right" style="font-weight:bold;color:black;">IP地址:</td>
                           <td height="30">&nbsp;&nbsp;<span id="user_ip"></span></td>
                         </tr>
-                                                <tr>
-                          <td height="30" align="right" style="font-weight:bold;color:black;">温馨提示:</td>
-                          <td height="30">&nbsp;&nbsp;<span id="">E2620: You are already online.</span></td>
-                        </tr>	
                         						
                         <script language="javascript">
-                          setTimeout("get_online_info('219.216.64.166')", 2000);
+                          setTimeout("get_online_info('118.202.40.134')", 2000);
                         </script>
                                                 <tr>
                           <td colspan="2" height="30"></td>

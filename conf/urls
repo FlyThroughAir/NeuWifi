@@ -1,0 +1,4 @@
+abslogout: http://ipgw.neu.edu.cn/include/auth_action.php
+login: http://ipgw.neu.edu.cn/srun_portal_pc.php?ac_id=1&
+logout: http://ipgw.neu.edu.cn/srun_portal_pc.php?ac_id=1&
+auth: http://ipgw.neu.edu.cn/include/auth_action.php?

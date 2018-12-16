@@ -9,6 +9,7 @@ NeuWifi
 
 
 ### 运行方式
+需要将conf/wifi_login_params下的wifi用户名和密码填上
 Linux下直接运行run.sh文件
 window下参考运行run.bat文件
 

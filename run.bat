@@ -21,6 +21,7 @@ SET Content=%SPARK_DIST_CLASSPATH%MyWifi.py
 ::echo param = %1%
 @set param=%1%
 ::echo param = %param%
+if "%param%"=="" goto :login
 
 if "%param%"=="login" goto %param%
 if "%param%"=="logout" goto %param%

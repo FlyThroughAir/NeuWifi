@@ -142,6 +142,7 @@ class MyWifi(MyCrawl):
                 ld.saveLines(lines,paramFiles['logout'])
                 content = "\n".join(lines)
                 self.eml.setContent("实验室服务器信息",content)
+                self.eml.send()
 
 
         #print(the_page)

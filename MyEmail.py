@@ -37,6 +37,7 @@ class MyEmail:
         msg['Subject'] = self.subject
         msg['From'] = self.msg_from
         msg['To'] = self.msg_to
+        print("发送邮件从%s到%s" % (self.msg_from, self.msg_to))
         try:
             s = smtplib.SMTP_SSL("smtp.qq.com", 465)  # 邮件服务器及端口号
             s.login(self.msg_from, self.passwd)

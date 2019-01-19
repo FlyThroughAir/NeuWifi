@@ -56,7 +56,7 @@ class LoadData:
 
 
 
-    def loadParams(self, paramsName,split="="):
+    def loadParams(self, paramsName, split="="):
         '''
         加载参数数据
         :return:
@@ -76,3 +76,7 @@ class LoadData:
             params[key] = value
             i += 1
         return params
+
+
+    def loadUrls(self, urlsName,split=":"):
+        return self.loadParams(urlsName,split=split)

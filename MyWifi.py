@@ -1,5 +1,6 @@
 from MyCrawl import MyCrawl
-from loadData import LoadData
+from LoadData import LoadData
+from MyEmail import MyEmail
 import random
 import math
 import time
@@ -31,23 +32,32 @@ class MyWifi(MyCrawl):
             "logout": "out/logout.txt"
         }
 
+        ld = LoadData()
+        urls = ld.loadUrls('conf/urls')
         self.urls={
-            "abslogout":"http://ipgw.neu.edu.cn/include/auth_action.php",
-            "login": "http://ipgw.neu.edu.cn/srun_portal_pc.php?ac_id=1&",
-            "logout": "http://ipgw.neu.edu.cn/srun_portal_pc.php?ac_id=1&",
-            "auth": "http://ipgw.neu.edu.cn/include/auth_action.php?"
+            "abslogout":urls['abslogout'],
+            "login": urls['login'],
+            "logout": urls['logout'],
+            "auth": urls['auth']
         }
+
+        edatas = ld.loadParams('conf/email',split="=")
+        self.eml = MyEmail()
+        self.eml.setUser(edatas['msg_from'],edatas['msg_to'],edatas['passwd'])
 
         # self.absLogoutUrl = "http://ipgw.neu.edu.cn/include/auth_action.php"
         # self.loginUrl = "http://ipgw.neu.edu.cn/srun_portal_pc.php?ac_id=1&"
         # self.logoutUrl = "http://ipgw.neu.edu.cn/srun_portal_pc.php?ac_id=1&"
         # self.authUrl = "http://ipgw.neu.edu.cn/include/auth_action.php?"
 
-        self.ld = LoadData()
+        self.ld = ld
         if not os.path.exists("out"):
             os.mkdir('out')
         if not os.path.exists('conf'):
             print("配置文件损坏，无法运行，请自行查看代码修复！很容易")
+
+
+
 
     def __format_time__(self, sec):
         sec = int(float(sec))
@@ -130,6 +140,10 @@ class MyWifi(MyCrawl):
                     else:
                         lines.append(k + ": " + v)
                 ld.saveLines(lines,paramFiles['logout'])
+                content = "\n".join(lines)
+                self.eml.setContent("实验室服务器信息",content)
+
+
         #print(the_page)
         #ld.saveFile(html,'auth.txt')
 
@@ -176,13 +190,12 @@ class MyWifi(MyCrawl):
             print(k,headerFiles[k],paramFiles[k],outFiles[k])
 
 
-if __name__ == '__main__':
 
+def login():
     mw = MyWifi()
     print("开始连接！")
     stime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print("当前时间:",stime)
-
+    print("当前时间:", stime)
     if not mw.login():
         print("已有在线，断开连接！")
         mw.absLogout()
@@ -193,6 +206,30 @@ if __name__ == '__main__':
     time.sleep(1)
     mw.get_auth_info()
     print("连接完成！")
+
+
+def logout():
+    mw = MyWifi()
+    print("断开连接！")
+    stime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print("当前时间:", stime)
+    if not mw.login():
+        print("已有在线，断开连接！")
+        mw.absLogout()
+    print("已经断开！")
+
+
+if __name__ == '__main__':
+    import argparse
+    switch  = {'login':login, 'logout':logout}
+    parser = argparse.ArgumentParser()
+    #print("please input  'python MyWifi -h' to call for help")
+    parser.add_argument('--type', type=str, default='login', help='input "login" or "logout" ')
+    args = parser.parse_args()
+    fun = switch[args.type]
+    fun()
+
+
 
 # 使用crontab来进行系统定时启动操作。、、、、
 

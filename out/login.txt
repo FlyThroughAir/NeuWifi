@@ -84,10 +84,6 @@
                           <td height="30" align="right" style="font-weight:bold;color:black;">IP地址:</td>
                           <td height="30">&nbsp;&nbsp;<span id="user_ip"></span></td>
                         </tr>
-                                                <tr>
-                          <td height="30" align="right" style="font-weight:bold;color:black;">温馨提示:</td>
-                          <td height="30">&nbsp;&nbsp;<span id="">E2620: You are already online.</span></td>
-                        </tr>	
                         						
                         <script language="javascript">
                           setTimeout("get_online_info('219.216.64.166')", 2000);
